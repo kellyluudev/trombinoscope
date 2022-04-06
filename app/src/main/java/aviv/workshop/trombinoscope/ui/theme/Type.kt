@@ -2,27 +2,63 @@ package aviv.workshop.trombinoscope.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import aviv.workshop.trombinoscope.R
 
-// Set of Material typography styles to start with
+
+private val SourceSansProFont = FontFamily(
+    Font(R.font.source_sans_pro_regular, FontWeight.Normal),
+    Font(R.font.source_sans_pro_bold, FontWeight.Bold),
+    Font(R.font.source_sans_pro_semi_bold, FontWeight.SemiBold)
+)
+
 val Typography = Typography(
-    body1 = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
+    h1 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.Bold,
+        fontSize = 28.sp
+    ),
+    h2 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.Bold,
+        fontSize = 24.sp
+    ),
+    h3 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+    h4 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.Bold,
         fontSize = 16.sp
-    )
-    /* Other default text styles to override
-    button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
+    ),
+    subtitle1 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp
+    ),
+    subtitle2 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 14.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
+    body1 = TextStyle(
+        fontFamily = SourceSansProFont,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 16.sp
+    ),
+    body2 = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
+    button = TextStyle(
+        fontFamily = SourceSansProFont,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp
     )
-    */
 )
