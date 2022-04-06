@@ -6,12 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WorkerItem(worker: Worker) {
-    Surface {
+    Surface(elevation = 4.dp, shape = RoundedCornerShape(8.dp)) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -50,17 +50,17 @@ fun WorkerItem(worker: Worker) {
 
 @Composable
 fun WorkerName(name: String) {
-    Text(text = name)
+    Text(text = name, style = MaterialTheme.typography.h3)
 }
 
 @Composable
 fun WorkerArrivalDate(arrivalDate: String) {
-    Text(text = arrivalDate)
+    Text(text = arrivalDate, style = MaterialTheme.typography.body1)
 }
 
 @Composable
 fun WorkerJobTitle(jobTitle: String) {
-    Text(text = jobTitle)
+    Text(text = jobTitle, style = MaterialTheme.typography.body1)
 }
 
 @Composable
@@ -68,7 +68,10 @@ fun WorkerPicture(@DrawableRes pictureRes: Int) {
     Image(
         painter = painterResource(pictureRes),
         contentDescription = "Worker picture",
-        contentScale = ContentScale.Crop
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .size(80.dp)
+            .clip(RoundedCornerShape(8.dp))
     )
 
     // To use Coil:
@@ -77,8 +80,9 @@ fun WorkerPicture(@DrawableRes pictureRes: Int) {
 
 @Composable
 fun WorkerShowDetailsButton() {
-    OutlinedButton(
+    Button(
         modifier = Modifier.padding(top = 12.dp),
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
         onClick = {}
     ) {
         Text(text = "Show details")
