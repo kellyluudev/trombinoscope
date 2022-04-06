@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -19,12 +21,43 @@ import androidx.compose.ui.unit.dp
 import aviv.workshop.trombinoscope.ui.theme.TrombinoscopeTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel = MainViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val workers = viewModel.getWorkers()
+
         setContent {
             TrombinoscopeTheme {
-
+                WorkerScreen(workers)
             }
+        }
+    }
+}
+
+@Composable
+fun WorkerScreen(workers: List<Worker>) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Trombinoscope") },
+                backgroundColor = MaterialTheme.colors.secondary
+            )
+        },
+        content = { WorkerList(workers) }
+    )
+}
+
+@Composable
+fun WorkerList(workers: List<Worker>) {
+    LazyColumn(
+        modifier = Modifier.padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(workers) { worker ->
+            WorkerItem(worker)
         }
     }
 }
@@ -93,7 +126,9 @@ fun WorkerShowDetailsButton() {
 @Preview(showBackground = true, widthDp = 320)
 @Composable
 fun DefaultPreview() {
+    val repository = WorkerRepository()
+    val workers = repository.getWorkers()
     TrombinoscopeTheme {
-        WorkerItem(Worker())
+        WorkerScreen(workers)
     }
 }
