@@ -61,7 +61,9 @@ fun WorkerItem(navController: NavController, worker: Worker) {
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier.clickable {
-            navController.navigate(Screen.DetailScreen.route)
+            navController.navigate(
+                Screen.DetailScreen.withArgs(worker.name, worker.jobTitle)
+            )
         }
     ) {
         Row(
