@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trombinoscope">
         <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_example"
-            android:theme="@style/Theme.Trombinoscope" />
-        <activity
             android:name=".ui.ExampleActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Trombinoscope.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Trombinoscope.NoActionBar">
+            android:theme="@style/Theme.Trombinoscope">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
