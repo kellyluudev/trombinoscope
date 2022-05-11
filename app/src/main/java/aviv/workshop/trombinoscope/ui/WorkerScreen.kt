@@ -9,9 +9,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,11 +22,14 @@ import aviv.workshop.trombinoscope.Screen
 import aviv.workshop.trombinoscope.Worker
 import aviv.workshop.trombinoscope.WorkerListViewModel
 
-
 @Composable
 fun WorkerScreen(navController: NavController, viewModel: WorkerListViewModel) {
 
-    val workers = viewModel.getWorkers()
+    var workers by remember { mutableStateOf<List<Worker>>(emptyList()) }
+
+    LaunchedEffect(key1 = "key") {
+        workers = viewModel.getWorkers()
+    }
 
     Scaffold(
         topBar = {
