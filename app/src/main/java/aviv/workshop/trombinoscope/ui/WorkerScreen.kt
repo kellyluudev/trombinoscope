@@ -6,9 +6,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -25,14 +30,16 @@ import aviv.workshop.trombinoscope.WorkerListViewModel
 
 @Composable
 fun WorkerRoute(
+    windowSizeClass: WindowSizeClass,
     viewModel: WorkerListViewModel,
     navigateToDetails: (String, String) -> Unit
 ) {
-    WorkerScreen(viewModel, navigateToDetails)
+    WorkerScreen(windowSizeClass, viewModel, navigateToDetails)
 }
 
 @Composable
 fun WorkerScreen(
+    windowSizeClass: WindowSizeClass,
     viewModel: WorkerListViewModel,
     navigateToDetails: (String, String) -> Unit
 ) {
@@ -46,21 +53,30 @@ fun WorkerScreen(
                 backgroundColor = MaterialTheme.colors.secondary
             )
         },
-        content = { WorkerList(navigateToDetails, workers) }
+        content = { WorkerList(windowSizeClass, navigateToDetails, workers) }
     )
 }
 
 @Composable
 fun WorkerList(
+    windowSizeClass: WindowSizeClass,
     navigateToDetails: (String, String) -> Unit,
     workers: List<Worker>
 ) {
-    LazyColumn(
-        modifier = Modifier.padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        items(workers) { worker ->
-            WorkerItem(navigateToDetails, worker)
+    if (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) {
+        LazyColumn(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            items(workers) { worker ->
+                WorkerItem(navigateToDetails, worker)
+            }
+        }
+    } else {
+        LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 300.dp)) {
+            items(workers) { worker ->
+                WorkerItem(navigateToDetails, worker)
+            }
         }
     }
 }
@@ -80,7 +96,9 @@ fun WorkerItem(
         }
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {

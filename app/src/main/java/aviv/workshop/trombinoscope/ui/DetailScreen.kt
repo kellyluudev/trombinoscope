@@ -5,7 +5,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun DetailRoute(name: String?, jobTitle: String?) {
+fun DetailRoute(
+    name: String?,
+    jobTitle: String?
+) {
     DetailScreen(name, jobTitle)
 }
 

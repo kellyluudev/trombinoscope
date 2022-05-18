@@ -1,5 +1,6 @@
 package aviv.workshop.trombinoscope
 
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -8,14 +9,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import aviv.workshop.trombinoscope.ui.DetailRoute
 import androidx.navigation.navArgument
-import aviv.workshop.trombinoscope.ui.DetailScreen
 import aviv.workshop.trombinoscope.ui.WorkerRoute
 
 const val NAME_KEY = "name"
 const val JOB_TITLE_KEY = "job_title"
 
 @Composable
-fun Navigation() {
+fun Navigation(windowSizeClass: WindowSizeClass) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -23,6 +23,7 @@ fun Navigation() {
     ) {
         composable(route = Screen.WorkerListScreen.route) {
             WorkerRoute(
+                windowSizeClass = windowSizeClass,
                 viewModel = viewModel(),
                 navigateToDetails = { name: String, jobTitle: String ->
                     navController.navigate(Screen.DetailScreen.withArgs(name, jobTitle))
