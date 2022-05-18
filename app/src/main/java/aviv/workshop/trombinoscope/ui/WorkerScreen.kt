@@ -19,14 +19,23 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import aviv.workshop.trombinoscope.Screen
 import aviv.workshop.trombinoscope.Worker
 import aviv.workshop.trombinoscope.WorkerListViewModel
 
 
 @Composable
-fun WorkerScreen(navController: NavController, viewModel: WorkerListViewModel) {
+fun WorkerRoute(
+    viewModel: WorkerListViewModel,
+    navigateToDetails: () -> Unit
+) {
+    WorkerScreen(viewModel, navigateToDetails)
+}
+
+@Composable
+fun WorkerScreen(
+    viewModel: WorkerListViewModel,
+    navigateToDetails: () -> Unit
+) {
 
     val workers = viewModel.getWorkers()
 
@@ -37,31 +46,37 @@ fun WorkerScreen(navController: NavController, viewModel: WorkerListViewModel) {
                 backgroundColor = MaterialTheme.colors.secondary
             )
         },
-        content = { WorkerList(navController, workers) }
+        content = { WorkerList(navigateToDetails, workers) }
     )
 }
 
 @Composable
-fun WorkerList(navController: NavController, workers: List<Worker>) {
+fun WorkerList(
+    navigateToDetails: () -> Unit,
+    workers: List<Worker>
+) {
     LazyColumn(
         modifier = Modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(workers) { worker ->
-            WorkerItem(navController, worker)
+            WorkerItem(navigateToDetails, worker)
         }
     }
 }
 
 @Composable
-fun WorkerItem(navController: NavController, worker: Worker) {
+fun WorkerItem(
+    navigateToDetails: () -> Unit,
+    worker: Worker
+) {
     val isDetailsDisplayed = rememberSaveable { mutableStateOf(false) }
 
     Surface(
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier.clickable {
-            navController.navigate(Screen.DetailScreen.route)
+            navigateToDetails()
         }
     ) {
         Row(
