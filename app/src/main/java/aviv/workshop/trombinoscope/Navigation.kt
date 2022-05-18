@@ -6,6 +6,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import aviv.workshop.trombinoscope.ui.DetailRoute
 import androidx.navigation.navArgument
 import aviv.workshop.trombinoscope.ui.DetailScreen
 import aviv.workshop.trombinoscope.ui.WorkerRoute
@@ -44,7 +45,7 @@ fun Navigation() {
                 }
             )
         ) { entry ->
-            DetailScreen(
+            DetailRoute(
                 name = entry.arguments?.getString(NAME_KEY),
                 jobTitle = entry.arguments?.getString(JOB_TITLE_KEY)
             )
