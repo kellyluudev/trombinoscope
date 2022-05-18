@@ -1,6 +1,5 @@
 package aviv.workshop.trombinoscope
 
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -24,8 +23,8 @@ fun Navigation() {
         composable(route = Screen.WorkerListScreen.route) {
             WorkerRoute(
                 viewModel = viewModel(),
-                navigateToDetails = {
-                    navController.navigate(Screen.DetailScreen.route)
+                navigateToDetails = { name: String, jobTitle: String ->
+                    navController.navigate(Screen.DetailScreen.withArgs(name, jobTitle))
                 }
             )
         }

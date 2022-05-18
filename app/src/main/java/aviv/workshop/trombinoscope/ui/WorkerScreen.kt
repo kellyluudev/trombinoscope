@@ -26,7 +26,7 @@ import aviv.workshop.trombinoscope.WorkerListViewModel
 @Composable
 fun WorkerRoute(
     viewModel: WorkerListViewModel,
-    navigateToDetails: () -> Unit
+    navigateToDetails: (String, String) -> Unit
 ) {
     WorkerScreen(viewModel, navigateToDetails)
 }
@@ -34,7 +34,7 @@ fun WorkerRoute(
 @Composable
 fun WorkerScreen(
     viewModel: WorkerListViewModel,
-    navigateToDetails: () -> Unit
+    navigateToDetails: (String, String) -> Unit
 ) {
 
     val workers = viewModel.getWorkers()
@@ -52,7 +52,7 @@ fun WorkerScreen(
 
 @Composable
 fun WorkerList(
-    navigateToDetails: () -> Unit,
+    navigateToDetails: (String, String) -> Unit,
     workers: List<Worker>
 ) {
     LazyColumn(
@@ -67,7 +67,7 @@ fun WorkerList(
 
 @Composable
 fun WorkerItem(
-    navigateToDetails: () -> Unit,
+    navigateToDetails: (String, String) -> Unit,
     worker: Worker
 ) {
     val isDetailsDisplayed = rememberSaveable { mutableStateOf(false) }
