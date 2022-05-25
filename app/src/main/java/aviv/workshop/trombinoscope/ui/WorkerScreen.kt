@@ -6,9 +6,15 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -17,13 +23,24 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import aviv.workshop.trombinoscope.Screen
 import aviv.workshop.trombinoscope.Worker
 import aviv.workshop.trombinoscope.WorkerListViewModel
 
 @Composable
-fun WorkerScreen(navController: NavController, viewModel: WorkerListViewModel) {
+fun WorkerRoute(
+    windowSizeClass: WindowSizeClass,
+    viewModel: WorkerListViewModel,
+    navigateToDetails: (String, String) -> Unit
+) {
+    WorkerScreen(windowSizeClass, viewModel, navigateToDetails)
+}
+
+@Composable
+fun WorkerScreen(
+    windowSizeClass: WindowSizeClass,
+    viewModel: WorkerListViewModel,
+    navigateToDetails: (String, String) -> Unit
+) {
 
     var workers by remember { mutableStateOf<List<Worker>>(emptyList()) }
 
@@ -35,40 +52,55 @@ fun WorkerScreen(navController: NavController, viewModel: WorkerListViewModel) {
         topBar = {
             TopAppBar(
                 title = { Text("Trombinoscope") },
-                backgroundColor = MaterialTheme.colors.secondary
+                backgroundColor = MaterialTheme.colorScheme.primary
             )
         },
-        content = { WorkerList(navController, workers) }
+        content = { WorkerList(windowSizeClass, navigateToDetails, workers) }
     )
 }
 
 @Composable
-fun WorkerList(navController: NavController, workers: List<Worker>) {
-    LazyColumn(
-        modifier = Modifier.padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        items(workers) { worker ->
-            WorkerItem(navController, worker)
+fun WorkerList(
+    windowSizeClass: WindowSizeClass,
+    navigateToDetails: (String, String) -> Unit,
+    workers: List<Worker>
+) {
+    if (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) {
+        LazyColumn(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            items(workers) { worker ->
+                WorkerItem(navigateToDetails, worker)
+            }
+        }
+    } else {
+        LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 300.dp)) {
+            items(workers) { worker ->
+                WorkerItem(navigateToDetails, worker)
+            }
         }
     }
 }
 
 @Composable
-fun WorkerItem(navController: NavController, worker: Worker) {
+fun WorkerItem(
+    navigateToDetails: (String, String) -> Unit,
+    worker: Worker
+) {
     val isDetailsDisplayed = rememberSaveable { mutableStateOf(false) }
 
     Surface(
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier.clickable {
-            navController.navigate(
-                Screen.DetailScreen.withArgs(worker.name, worker.jobTitle)
-            )
+            navigateToDetails(worker.name, worker.jobTitle)
         }
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -91,17 +123,17 @@ fun WorkerItem(navController: NavController, worker: Worker) {
 
 @Composable
 fun WorkerName(name: String) {
-    Text(text = name, style = MaterialTheme.typography.h3)
+    Text(text = name, style = MaterialTheme.typography.headlineMedium)
 }
 
 @Composable
 fun WorkerArrivalDate(arrivalDate: String) {
-    Text(text = arrivalDate, style = MaterialTheme.typography.body1)
+    Text(text = arrivalDate, style = MaterialTheme.typography.bodyLarge)
 }
 
 @Composable
 fun WorkerJobTitle(jobTitle: String) {
-    Text(text = jobTitle, style = MaterialTheme.typography.body1)
+    Text(text = jobTitle, style = MaterialTheme.typography.bodyLarge)
 }
 
 @Composable
@@ -123,7 +155,7 @@ fun WorkerPicture(@DrawableRes pictureRes: Int) {
 fun WorkerShowDetailsButton(isDetailsDisplayed: MutableState<Boolean>) {
     Button(
         modifier = Modifier.padding(top = 12.dp),
-        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary),
         onClick = {
             isDetailsDisplayed.value = !isDetailsDisplayed.value
         }
