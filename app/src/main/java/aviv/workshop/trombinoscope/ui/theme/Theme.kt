@@ -1,16 +1,10 @@
 package aviv.workshop.trombinoscope.ui.theme
 
 import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.google.android.material.color.ColorRoles
-import com.google.android.material.color.MaterialColors
 
 private val LightThemeColors = lightColorScheme(
 
@@ -74,12 +68,15 @@ private val DarkThemeColors = darkColorScheme(
 @Composable
 fun TrombinoscopeTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
-    val colors = if (!useDarkTheme) {
-        LightThemeColors
-    } else {
-        DarkThemeColors
+    val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+
+    val colorScheme = when {
+        dynamicColor && useDarkTheme -> dynamicDarkColorScheme(LocalContext.current)
+        dynamicColor && !useDarkTheme -> dynamicLightColorScheme(LocalContext.current)
+        useDarkTheme -> DarkThemeColors
+        else -> LightThemeColors
     }
 
     MaterialTheme(
