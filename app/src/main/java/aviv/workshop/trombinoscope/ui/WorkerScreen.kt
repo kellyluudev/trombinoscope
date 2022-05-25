@@ -50,7 +50,7 @@ fun WorkerScreen(
         topBar = {
             TopAppBar(
                 title = { Text("Trombinoscope") },
-                backgroundColor = MaterialTheme.colors.secondary
+                backgroundColor = MaterialTheme.colorScheme.primary
             )
         },
         content = { WorkerList(windowSizeClass, navigateToDetails, workers) }
@@ -153,7 +153,7 @@ fun WorkerPicture(@DrawableRes pictureRes: Int) {
 fun WorkerShowDetailsButton(isDetailsDisplayed: MutableState<Boolean>) {
     Button(
         modifier = Modifier.padding(top = 12.dp),
-        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.secondary),
+        colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary),
         onClick = {
             isDetailsDisplayed.value = !isDetailsDisplayed.value
         }
