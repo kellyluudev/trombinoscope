@@ -32,13 +32,6 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
-                "François Grzybowski",
-                R.drawable.francois,
-                "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
-                "2016",
-                "Engineering Manager"
-            ),
-            Worker(
                 "Anthony Valette",
                 R.drawable.anthony,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
