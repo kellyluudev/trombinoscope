@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -59,7 +60,7 @@ private fun WorkerItem(worker: Worker) {
                 H3Text(text = worker.name)
                 Body1Text(text = worker.jobTitle)
                 ArrivalDate(worker, isVisible.value)
-                DetailsButton()
+                DetailsButton(isVisible)
             }
             Image(
                 painter = painterResource(worker.pictureRes),
@@ -80,11 +81,11 @@ private fun ArrivalDate(worker: Worker, isVisible: Boolean) =
     }
 
 @Composable
-private fun DetailsButton() = SecondaryButton(
+private fun DetailsButton(isVisible: MutableState<Boolean>) = SecondaryButton(
     modifier = Modifier.padding(top = 12.dp),
     text = "Show details",
     onClick = {
-
+        isVisible.value = !isVisible.value
     }
 )
 
