@@ -30,7 +30,7 @@ fun WorkerScreen(workers: List<Worker>) {
 
 @Composable
 private fun WorkerList(workers: List<Worker>) {
-    LazyColumn {
+    LazyColumn(modifier = Modifier.padding(16.dp)) {
         items(workers) {
             WorkerItem(worker = it)
         }
@@ -41,7 +41,6 @@ private fun WorkerList(workers: List<Worker>) {
 private fun WorkerItem(worker: Worker) =
     Card(
         modifier = Modifier
-            .padding(16.dp)
             .fillMaxWidth(),
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp)
