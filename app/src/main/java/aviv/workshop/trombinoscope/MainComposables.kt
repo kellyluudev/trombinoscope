@@ -76,6 +76,6 @@ private fun WorkerItem(worker: Worker) =
 @Composable
 fun DefaultPreview() {
     TrombinoscopeTheme {
-        WorkerScreen(listOf(Worker()))
+        WorkerScreen(listOf(Worker(), Worker()))
     }
 }
