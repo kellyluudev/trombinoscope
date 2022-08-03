@@ -1,4 +1,4 @@
-package aviv.workshop.trombinoscope
+package aviv.workshop.trombinoscope.list
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -19,8 +19,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import aviv.workshop.trombinoscope.ScreenState.DETAILS_HIDDEN
-import aviv.workshop.trombinoscope.ScreenState.DETAILS_VISIBLE
+import aviv.workshop.trombinoscope.TrombinoscopeTheme
+import aviv.workshop.trombinoscope.list.ScreenState.DETAILS_HIDDEN
+import aviv.workshop.trombinoscope.list.ScreenState.DETAILS_VISIBLE
 import com.example.figma.atoms.Body1Text
 import com.example.figma.atoms.H3Text
 import com.example.figma.atoms.PrimaryToolBar

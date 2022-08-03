@@ -1,4 +1,6 @@
-package aviv.workshop.trombinoscope
+package aviv.workshop.trombinoscope.list
+
+import aviv.workshop.trombinoscope.R
 
 class WorkerRepository {
 
