@@ -2,6 +2,8 @@ package aviv.workshop.trombinoscope
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
@@ -28,7 +30,11 @@ fun WorkerScreen(workers: List<Worker>) {
 
 @Composable
 private fun WorkerList(workers: List<Worker>) {
-    WorkerItem(workers.first())
+    LazyColumn {
+        items(workers) {
+            WorkerItem(worker = it)
+        }
+    }
 }
 
 @Composable
