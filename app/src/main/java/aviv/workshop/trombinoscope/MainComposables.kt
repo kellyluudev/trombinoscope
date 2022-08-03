@@ -22,8 +22,13 @@ import com.example.figma.atoms.SecondaryButton
 fun WorkerScreen(workers: List<Worker>) {
     Scaffold(
         topBar = { PrimaryToolBar(title = "Trombinoscope") },
-        content = { WorkerItem(workers.first()) }
+        content = { WorkerList(workers) }
     )
+}
+
+@Composable
+private fun WorkerList(workers: List<Worker>) {
+    WorkerItem(workers.first())
 }
 
 @Composable
