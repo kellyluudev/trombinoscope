@@ -7,6 +7,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,7 +21,11 @@ fun WorkerScreen(workers: List<Worker>) {
 @Composable
 private fun WorkerItem(worker: Worker) {
     Card(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
-        Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Column {
                 Text(text = worker.name)
                 Text(worker.arrivalDate)
