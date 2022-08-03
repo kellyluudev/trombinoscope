@@ -1,4 +1,4 @@
-package aviv.workshop.trombinoscope.ui.theme
+package com.example.figma.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

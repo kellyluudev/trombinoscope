@@ -1,6 +1,7 @@
-package aviv.workshop.trombinoscope.ui.theme
+package com.example.figma.theme
 
 import androidx.compose.ui.graphics.Color
+
 
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
