@@ -55,11 +55,7 @@ private fun WorkerItem(worker: Worker) =
                 H3Text(text = worker.name)
                 Body1Text(text = worker.arrivalDate)
                 Body1Text(worker.jobTitle)
-                SecondaryButton(
-                    modifier = Modifier.padding(top = 12.dp),
-                    text = "Show details",
-                    onClick = {}
-                )
+                DetailsButton()
             }
             Image(
                 painter = painterResource(worker.pictureRes),
@@ -71,6 +67,15 @@ private fun WorkerItem(worker: Worker) =
             )
         }
     }
+
+@Composable
+private fun DetailsButton() {
+    SecondaryButton(
+        modifier = Modifier.padding(top = 12.dp),
+        text = "Show details",
+        onClick = {}
+    )
+}
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
