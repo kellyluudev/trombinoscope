@@ -19,6 +19,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import aviv.workshop.trombinoscope.ScreenState.DETAILS_HIDDEN
+import aviv.workshop.trombinoscope.ScreenState.DETAILS_VISIBLE
 import com.example.figma.atoms.Body1Text
 import com.example.figma.atoms.H3Text
 import com.example.figma.atoms.PrimaryToolBar
@@ -49,7 +51,7 @@ private fun WorkerList(workers: List<Worker>) = LazyColumn(
 
 @Composable
 private fun WorkerItem(worker: Worker) {
-    val state = remember { mutableStateOf(ScreenState.DETAILS_HIDDEN) }
+    val state = remember { mutableStateOf(DETAILS_HIDDEN) }
     Card(
         modifier = Modifier
             .fillMaxWidth(),
@@ -86,13 +88,16 @@ private fun ArrivalDate(worker: Worker, isVisible: Boolean) =
     }
 
 @Composable
-private fun DetailsButton(isVisible: MutableState<ScreenState>) = SecondaryButton(
+private fun DetailsButton(state: MutableState<ScreenState>) = SecondaryButton(
     modifier = Modifier.padding(top = 12.dp),
-    text = "Show details",
-    onClick = {
-        isVisible.value = !isVisible.value
-    }
-)
+    text = state.value.buttonText,
+    onClick = { oldText ->
+        state.value = if (oldText == DETAILS_VISIBLE.buttonText) {
+            DETAILS_HIDDEN
+        } else {
+            DETAILS_VISIBLE
+        }
+    })
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
