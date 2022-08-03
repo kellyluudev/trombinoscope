@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,8 +36,8 @@ private fun WorkerItem(worker: Worker) =
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Text(text = worker.name)
-                Text(worker.arrivalDate)
+                Text(text = worker.name, style = MaterialTheme.typography.h3)
+                Text(worker.arrivalDate, style = MaterialTheme.typography.body1)
                 Text(worker.jobTitle)
                 Button(
                     modifier = Modifier.padding(top = 12.dp),
