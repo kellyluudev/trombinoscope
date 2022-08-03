@@ -21,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import aviv.workshop.trombinoscope.MainViewModel
-import aviv.workshop.trombinoscope.Screen
 import aviv.workshop.trombinoscope.TrombinoscopeTheme
 import aviv.workshop.trombinoscope.list.ScreenState.DETAILS_HIDDEN
 import aviv.workshop.trombinoscope.list.ScreenState.DETAILS_VISIBLE
@@ -36,10 +35,10 @@ enum class ScreenState(val buttonText: String, val isDetailsVisible: Boolean) {
 }
 
 @Composable
-fun WorkerScreen(workers: List<Worker>, viewModel: MainViewModel, navigateToDetails: Any) {
+fun WorkerScreen(viewModel: MainViewModel, navigateToDetails: Any) {
     Scaffold(
         topBar = { PrimaryToolBar(title = "Trombinoscope") },
-        content = { WorkerList(workers) }
+        content = { WorkerList(viewModel.getWorkers()) }
     )
 }
 
@@ -107,8 +106,8 @@ private fun DetailsButton(state: MutableState<ScreenState>) = SecondaryButton(
 @Composable
 fun DefaultPreview() {
     TrombinoscopeTheme {
-        WorkerScreen(listOf(Worker(), Worker()), viewModel()) {
-            navController.navigate(Screen.DetailScreen.route)
+        WorkerScreen(viewModel()) {
+
         }
     }
 }
