@@ -3,7 +3,8 @@ package aviv.workshop.trombinoscope
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,20 +15,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.figma.atoms.Body1Text
 import com.example.figma.atoms.H3Text
+import com.example.figma.atoms.PrimaryToolBar
 import com.example.figma.atoms.SecondaryButton
 
 @Composable
 fun WorkerScreen(workers: List<Worker>) {
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Trombinoscope") },
-                backgroundColor = MaterialTheme.colors.secondary
-            )
-        },
+        topBar = { PrimaryToolBar(title = "Trombinoscope") },
         content = { WorkerItem(workers.first()) }
     )
-    WorkerItem(workers.first())
 }
 
 @Composable
@@ -69,6 +65,6 @@ private fun WorkerItem(worker: Worker) =
 @Composable
 fun DefaultPreview() {
     TrombinoscopeTheme {
-        WorkerItem(Worker())
+        WorkerScreen(listOf(Worker()))
     }
 }
