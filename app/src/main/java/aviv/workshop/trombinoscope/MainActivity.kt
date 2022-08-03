@@ -9,17 +9,19 @@ import com.example.figma.theme.TrombinoscopeTheme
 
 class MainActivity : ComponentActivity() {
 
+    private val viewModel = MainViewModel()
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
         setContent {
             TrombinoscopeTheme {
-                WorkerScreen()
+                WorkerScreen(viewModel.getWorkers())
             }
         }
     }
 
     @Composable
-    private fun WorkerScreen() {
+    private fun WorkerScreen(workers: List<Worker>) {
         TODO("Not yet implemented")
     }
 }
