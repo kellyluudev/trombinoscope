@@ -6,6 +6,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun WorkerScreen(workers: List<Worker>) {
@@ -27,5 +28,13 @@ private fun WorkerItem(worker: Worker) {
             painter = painterResource(worker.pictureRes),
             contentDescription = "Worker picture"
         )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320)
+@Composable
+fun DefaultPreview() {
+    TrombinoscopeTheme {
+        WorkerItem(Worker())
     }
 }
