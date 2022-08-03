@@ -12,12 +12,8 @@ fun SecondaryButton(
     text: String,
     modifier: Modifier,
     onClick: (text: String) -> Unit
-) {
-    Button(
-        modifier = modifier,
-        colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
-        onClick = { onClick(text) }
-    ) {
-        Text(text = text)
-    }
-}
+) = Button(
+    modifier = modifier,
+    colors = ButtonDefaults.buttonColors(MaterialTheme.colors.secondary),
+    onClick = { onClick(text) }
+) { Text(text = text) }

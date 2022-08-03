@@ -15,6 +15,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.figma.atoms.Body1Text
+import com.example.figma.atoms.H3Text
+import com.example.figma.atoms.SecondaryButton
 
 @Composable
 fun WorkerScreen(workers: List<Worker>) {
@@ -36,15 +39,14 @@ private fun WorkerItem(worker: Worker) =
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column {
-                Text(text = worker.name, style = MaterialTheme.typography.h3)
-                Text(worker.arrivalDate, style = MaterialTheme.typography.body1)
-                Text(worker.jobTitle)
-                Button(
+                H3Text(text = worker.name)
+                Body1Text(text = worker.arrivalDate)
+                Body1Text(worker.jobTitle)
+                SecondaryButton(
                     modifier = Modifier.padding(top = 12.dp),
+                    text = "Show details",
                     onClick = {}
-                ) {
-                    Text(text = "Show details")
-                }
+                )
             }
             Image(
                 painter = painterResource(worker.pictureRes),
