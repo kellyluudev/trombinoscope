@@ -1,14 +1,12 @@
 package aviv.workshop.trombinoscope
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import com.example.figma.theme.TrombinoscopeTheme
 
 class MainActivity : ComponentActivity() {
 
