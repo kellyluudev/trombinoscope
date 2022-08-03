@@ -49,7 +49,7 @@ private fun WorkerList(workers: List<Worker>) = LazyColumn(
 
 @Composable
 private fun WorkerItem(worker: Worker) {
-    val isVisible = remember { mutableStateOf(false) }
+    val state = remember { mutableStateOf(ScreenState.DETAILS_HIDDEN) }
     Card(
         modifier = Modifier
             .fillMaxWidth(),
@@ -64,8 +64,8 @@ private fun WorkerItem(worker: Worker) {
             Column {
                 H3Text(text = worker.name)
                 Body1Text(text = worker.jobTitle)
-                ArrivalDate(worker, isVisible.value)
-                DetailsButton(isVisible)
+                ArrivalDate(worker, state.value)
+                DetailsButton(state)
             }
             Image(
                 painter = painterResource(worker.pictureRes),
