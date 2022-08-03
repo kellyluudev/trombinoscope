@@ -86,7 +86,7 @@ private fun ArrivalDate(worker: Worker, isVisible: Boolean) =
     }
 
 @Composable
-private fun DetailsButton(isVisible: MutableState<Boolean>) = SecondaryButton(
+private fun DetailsButton(isVisible: MutableState<ScreenState>) = SecondaryButton(
     modifier = Modifier.padding(top = 12.dp),
     text = "Show details",
     onClick = {
