@@ -22,6 +22,11 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun WorkerScreen(workers: List<Worker>) {
+        WorkerItem(workers.first())
+    }
+
+     @Composable
+    private fun WorkerItem(worker: Worker) {
         TODO("Not yet implemented")
     }
 }
