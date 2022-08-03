@@ -8,10 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 
 class MainActivity : ComponentActivity() {
 
@@ -23,29 +20,6 @@ class MainActivity : ComponentActivity() {
             TrombinoscopeTheme {
                 WorkerScreen(viewModel.getWorkers())
             }
-        }
-    }
-
-    @Composable
-    private fun WorkerScreen(workers: List<Worker>) {
-        WorkerItem(workers.first())
-    }
-
-     @Composable
-    private fun WorkerItem(worker: Worker) {
-        Column {
-            Text(text = worker.name)
-            Text(worker.arrivalDate)
-            Text(worker.jobTitle)
-            Button(
-                onClick = {}
-            ) {
-                Text(text = "Show details")
-            }
-            Image(
-                painter = painterResource(worker.pictureRes),
-                contentDescription = "Worker picture"
-            )
         }
     }
 }
