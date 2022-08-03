@@ -64,7 +64,7 @@ private fun WorkerItem(worker: Worker) {
             Column {
                 H3Text(text = worker.name)
                 Body1Text(text = worker.jobTitle)
-                ArrivalDate(worker, state.value)
+                ArrivalDate(worker, state.value.isDetailsVisible)
                 DetailsButton(state)
             }
             Image(
