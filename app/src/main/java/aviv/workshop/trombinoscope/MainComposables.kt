@@ -30,7 +30,7 @@ fun WorkerScreen(workers: List<Worker>) {
 
 @Composable
 private fun WorkerList(workers: List<Worker>) = LazyColumn(
-    modifier = Modifier.padding(16.dp),
+    contentPadding = PaddingValues(16.dp),
     verticalArrangement = Arrangement.spacedBy(8.dp)
 ) {
     items(workers) {
