@@ -54,7 +54,7 @@ private fun WorkerItem(worker: Worker) =
             Column {
                 H3Text(text = worker.name)
                 Body1Text(text = worker.arrivalDate)
-                Body1Text(worker.jobTitle)
+                ArrivalDate(worker)
                 DetailsButton()
             }
             Image(
@@ -69,13 +69,18 @@ private fun WorkerItem(worker: Worker) =
     }
 
 @Composable
-private fun DetailsButton() {
-    SecondaryButton(
-        modifier = Modifier.padding(top = 12.dp),
-        text = "Show details",
-        onClick = {}
-    )
+private fun ArrivalDate(worker: Worker) {
+    Body1Text(worker.jobTitle)
 }
+
+@Composable
+private fun DetailsButton() = SecondaryButton(
+    modifier = Modifier.padding(top = 12.dp),
+    text = "Show details",
+    onClick = {
+
+    }
+)
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
