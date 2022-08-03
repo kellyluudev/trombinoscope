@@ -37,6 +37,7 @@ private fun WorkerItem(worker: Worker) =
                 Text(worker.arrivalDate)
                 Text(worker.jobTitle)
                 Button(
+                    modifier = Modifier.padding(top = 12.dp),
                     onClick = {}
                 ) {
                     Text(text = "Show details")
