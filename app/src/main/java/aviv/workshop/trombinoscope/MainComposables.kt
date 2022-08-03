@@ -24,6 +24,11 @@ import com.example.figma.atoms.H3Text
 import com.example.figma.atoms.PrimaryToolBar
 import com.example.figma.atoms.SecondaryButton
 
+enum class ScreenState(val buttonText: String, val isDetailsVisible: Boolean) {
+    DETAILS_VISIBLE("Hide details", true),
+    DETAILS_HIDDEN("Show details", false)
+}
+
 @Composable
 fun WorkerScreen(workers: List<Worker>) {
     Scaffold(
