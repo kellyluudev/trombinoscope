@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import aviv.workshop.trombinoscope.details.DetailsScreen
-import aviv.workshop.trombinoscope.list.WorkerScreen
+import aviv.workshop.trombinoscope.list.WorkerListScreen
 
 @Composable
 fun MainNavigation() {
@@ -16,11 +16,8 @@ fun MainNavigation() {
         startDestination = Screen.WorkerListScreen.route
     ) {
         composable(route = Screen.WorkerListScreen.route) {
-            WorkerScreen(
-                viewModel = viewModel(),
-                navigateToDetails = {
-                    hostController.navigate(Screen.DetailScreen.route)
-                }
+            WorkerListScreen(
+                viewModel = viewModel()
             )
         }
 
