@@ -44,7 +44,7 @@ private fun WorkerList(workers: List<Worker>) = LazyColumn(
 
 @Composable
 private fun WorkerItem(worker: Worker) {
-    val isVisible = remember { mutableStateOf(true) }
+    val isVisible = remember { mutableStateOf(false) }
     Card(
         modifier = Modifier
             .fillMaxWidth(),
