@@ -1,5 +1,6 @@
 package aviv.workshop.trombinoscope
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -53,8 +54,8 @@ private fun WorkerItem(worker: Worker) =
         ) {
             Column {
                 H3Text(text = worker.name)
-                Body1Text(text = worker.arrivalDate)
-                ArrivalDate(worker)
+                Body1Text(text = worker.jobTitle)
+                ArrivalDate(worker, true)
                 DetailsButton()
             }
             Image(
@@ -69,9 +70,10 @@ private fun WorkerItem(worker: Worker) =
     }
 
 @Composable
-private fun ArrivalDate(worker: Worker) {
-    Body1Text(worker.jobTitle)
-}
+private fun ArrivalDate(worker: Worker, isVisible: Boolean) =
+    AnimatedVisibility(visible = isVisible) {
+        Body1Text(worker.arrivalDate)
+    }
 
 @Composable
 private fun DetailsButton() = SecondaryButton(
