@@ -2,9 +2,11 @@ package aviv.workshop.trombinoscope
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -15,14 +17,16 @@ fun WorkerScreen(workers: List<Worker>) {
 
 @Composable
 private fun WorkerItem(worker: Worker) {
-    Column {
-        Text(text = worker.name)
-        Text(worker.arrivalDate)
-        Text(worker.jobTitle)
-        Button(
-            onClick = {}
-        ) {
-            Text(text = "Show details")
+    Row {
+        Column {
+            Text(text = worker.name)
+            Text(worker.arrivalDate)
+            Text(worker.jobTitle)
+            Button(
+                onClick = {}
+            ) {
+                Text(text = "Show details")
+            }
         }
         Image(
             painter = painterResource(worker.pictureRes),
