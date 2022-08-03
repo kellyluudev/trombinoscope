@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import com.example.figma.theme.TrombinoscopeTheme
@@ -31,6 +32,13 @@ class MainActivity : ComponentActivity() {
     private fun WorkerItem(worker: Worker) {
         Column {
             Text(text = worker.name)
+            Text(worker.arrivalDate)
+            Text(worker.jobTitle)
+            Button(
+                onClick = {}
+            ) {
+                Text(text = "Show details")
+            }
         }
     }
 }
