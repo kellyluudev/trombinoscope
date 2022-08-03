@@ -23,7 +23,7 @@ fun WorkerScreen(workers: List<Worker>) {
 @Composable
 private fun WorkerItem(worker: Worker) {
     Card(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
-        Row {
+        Row(modifier = Modifier.padding(16.dp)) {
             Column {
                 Text(text = worker.name)
                 Text(worker.arrivalDate)
