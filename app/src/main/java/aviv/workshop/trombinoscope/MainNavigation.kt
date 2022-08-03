@@ -13,22 +13,22 @@ fun MainNavigation() {
     val hostController = rememberNavController()
     NavHost(
         navController = hostController,
-        startDestination = Screen.WorkerListScreen.route
+        startDestination = Screen.WORKER_LIST.name
     ) {
-        composable(route = Screen.WorkerListScreen.route) {
+        composable(route = Screen.WORKER_LIST.name) {
             WorkerListScreen(
                 viewModel = viewModel(),
-                onItemClicked = { hostController.navigate(Screen.DetailScreen.route) }
+                onItemClicked = { hostController.navigate(Screen.WORKER_DETAIL.name) }
             )
         }
 
-        composable(route = Screen.DetailScreen.route) {
+        composable(route = Screen.WORKER_DETAIL.name) {
             DetailsScreen(name = "name", jobTitle = "job title")
         }
     }
 }
 
-sealed class Screen(val route: String) {
-    object WorkerListScreen : Screen("worker_list_screen")
-    object DetailScreen : Screen("detail_screen")
+private enum class Screen {
+    WORKER_LIST,
+    WORKER_DETAIL
 }
