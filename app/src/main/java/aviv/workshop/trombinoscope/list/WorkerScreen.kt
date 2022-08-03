@@ -2,6 +2,7 @@ package aviv.workshop.trombinoscope.list
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -34,29 +35,30 @@ enum class ScreenState(val buttonText: String, val isDetailsVisible: Boolean) {
 }
 
 @Composable
-fun WorkerListScreen(viewModel: WorkerListViewModel) {
+fun WorkerListScreen(viewModel: WorkerListViewModel, onItemClicked: (worker: Worker) -> Unit) {
     Scaffold(
         topBar = { PrimaryToolBar(title = "Trombinoscope") },
-        content = { WorkerList(viewModel.getWorkers()) }
+        content = { WorkerList(viewModel.getWorkers(), onItemClicked) }
     )
 }
 
 @Composable
-private fun WorkerList(workers: List<Worker>) = LazyColumn(
+private fun WorkerList(workers: List<Worker>, onItemClicked: (worker: Worker) -> Unit) = LazyColumn(
     contentPadding = PaddingValues(16.dp),
     verticalArrangement = Arrangement.spacedBy(8.dp)
 ) {
     items(workers) {
-        WorkerItem(worker = it)
+        WorkerItem(worker = it, onClick = onItemClicked)
     }
 }
 
 @Composable
-private fun WorkerItem(worker: Worker) {
+private fun WorkerItem(worker: Worker, onClick: (worker: Worker) -> Unit) {
     val state = remember { mutableStateOf(DETAILS_HIDDEN) }
     Card(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { onClick(worker) },
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -105,6 +107,6 @@ private fun DetailsButton(state: MutableState<ScreenState>) = SecondaryButton(
 @Composable
 fun DefaultPreview() {
     TrombinoscopeTheme {
-        WorkerListScreen(viewModel())
+        WorkerListScreen(viewModel(), { })
     }
 }

@@ -17,7 +17,8 @@ fun MainNavigation() {
     ) {
         composable(route = Screen.WorkerListScreen.route) {
             WorkerListScreen(
-                viewModel = viewModel()
+                viewModel = viewModel(),
+                onItemClicked = { hostController.navigate(Screen.DetailScreen.route) }
             )
         }
 
