@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SecondaryButtonComponent(
+fun SecondaryButton(
     text: String,
     modifier: Modifier,
     onClick: (text: String) -> Unit
