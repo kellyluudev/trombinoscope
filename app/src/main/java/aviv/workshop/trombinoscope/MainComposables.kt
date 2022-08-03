@@ -1,10 +1,7 @@
 package aviv.workshop.trombinoscope
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
@@ -23,7 +20,7 @@ fun WorkerScreen(workers: List<Worker>) {
 @Composable
 private fun WorkerItem(worker: Worker) {
     Card(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
-        Row(modifier = Modifier.padding(16.dp)) {
+        Row(modifier = Modifier.padding(16.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             Column {
                 Text(text = worker.name)
                 Text(worker.arrivalDate)
