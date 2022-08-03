@@ -19,8 +19,14 @@ fun WorkerScreen(workers: List<Worker>) {
 }
 
 @Composable
-private fun WorkerItem(worker: Worker) {
-    Card(modifier = Modifier.padding(16.dp).fillMaxWidth()) {
+private fun WorkerItem(worker: Worker) =
+    Card(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth(),
+        elevation = 4.dp,
+        shape = RoundedCornerShape(8.dp)
+    ) {
         Row(
             modifier = Modifier.padding(16.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -42,7 +48,6 @@ private fun WorkerItem(worker: Worker) {
             )
         }
     }
-}
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
