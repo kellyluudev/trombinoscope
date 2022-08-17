@@ -1,4 +1,4 @@
-package aviv.workshop.trombinoscope.ui.theme
+package com.example.figma.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
