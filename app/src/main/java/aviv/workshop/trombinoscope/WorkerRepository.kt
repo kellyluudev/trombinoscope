@@ -8,8 +8,8 @@ class WorkerRepository {
                 "Abdullah Al Samman",
                 R.drawable.abdullah,
                 "",
-                "?",
-                "Belgium",
+                "2022",
+                "Germany",
                 "Android Engineer"
             ),
             Worker(
@@ -24,7 +24,7 @@ class WorkerRepository {
                 "Andrea Westrich",
                 R.drawable.andrea,
                 "",
-                "?",
+                "2019",
                 "Germany",
                 "Android CoE"
             ),
@@ -40,7 +40,7 @@ class WorkerRepository {
                 "Bhumanyu BARKAKATI",
                 R.drawable.bhumanyu,
                 "",
-                "?",
+                "2022",
                 "Belgium",
                 "Android Engineer"
             ),
@@ -128,10 +128,19 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                "Théo Sitnikow",
+                R.drawable.theo,
+                "https://ca.slack-edge.com/T8MMQ651A-U03R36766H2-2505e10b664c-512",
+                "2022",
+                "France",
+                "Android Engineer"
+            ),
+            Worker(
                 "Valentin Tran",
                 R.drawable.valentin,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2021",
+                "France",
                 "Android Engineer"
             ),
             Worker(
