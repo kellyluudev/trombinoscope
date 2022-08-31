@@ -37,7 +37,7 @@ private fun NavGraphBuilder.addWorkerList(hostController: NavHostController) =
 
 private fun NavGraphBuilder.addWorkerDetails() {
     val id = "workerId"
-    composable(route = Screen.WORKER_DETAIL.name + "/$id",
+    composable(route = Screen.WORKER_DETAIL.name + "/{$id}",
         arguments = listOf(
             navArgument(id) {
                 type = NavType.IntType
