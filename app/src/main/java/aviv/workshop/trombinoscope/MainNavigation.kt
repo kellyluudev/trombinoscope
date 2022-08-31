@@ -46,7 +46,12 @@ private fun NavGraphBuilder.addWorkerDetails() {
                 nullable = false
             }
         )) {
-        DetailsScreen(name = "name", jobTitle = "job title", id = it.arguments?.getInt(id) ?: 0)
+        DetailsScreen(
+            name = "name",
+            jobTitle = "job title",
+            id = it.arguments?.getInt(id) ?: 0,
+            viewModel = viewModel()
+        )
     }
 }
 
