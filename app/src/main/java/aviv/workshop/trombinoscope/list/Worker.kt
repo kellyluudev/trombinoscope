@@ -4,9 +4,10 @@ import androidx.annotation.DrawableRes
 import aviv.workshop.trombinoscope.R
 
 data class Worker(
-    val name: String = "Ahmed Abdellaoui",
-    @DrawableRes val pictureRes: Int = R.drawable.ahmed,
-    val pictureUrl: String = "https://media-exp1.licdn.com/dms/image/C4D03AQGUK5q3ryAFuQ/profile-displayphoto-shrink_200_200/0/1517349681988?e=1652918400&v=beta&t=GW-68M6vB0w0oyPs8U_MOdJqZEv9gfF557r3C71o6rA",
-    val arrivalDate: String = "2019",
-    val jobTitle: String = "Android Architect"
+    val name: String = "Rabbit",
+    @DrawableRes val pictureRes: Int? = R.drawable.rabbit,
+    val pictureUrl: String? = "https://i.pinimg.com/736x/02/07/b6/0207b6b5817da1984c2f08693122f32e.jpg",
+    val arrivalDate: String = "2022",
+    val location: String = "France",
+    val jobTitle: String = "Rabbit"
 )
