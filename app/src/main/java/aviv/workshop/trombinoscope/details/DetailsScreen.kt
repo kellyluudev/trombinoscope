@@ -10,5 +10,7 @@ fun DetailsScreen(workerId: Int, viewModel: DetailsViewModel) {
     Column {
         H3Text("Name: ${worker.name}")
         H3Text("Job title: ${worker.jobTitle}")
+        H3Text("Location: ${worker.location}")
+        H3Text("Arrival Date: ${worker.arrivalDate}")
     }
 }
