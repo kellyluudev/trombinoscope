@@ -46,6 +46,7 @@ class WorkerRepository {
             ),
             Worker(
                 "Chiara Müller-Kallweit",
+                arrivalDate = "2019",
                 location = "Germany",
                 jobTitle = "Android Engineer"
             ),
@@ -53,7 +54,7 @@ class WorkerRepository {
                 "Cristian Garcia Alvarez",
                 R.drawable.cristian,
                 "",
-                "?",
+                "2021",
                 "Belgium",
                 "Android CoE"
             ),
@@ -61,7 +62,7 @@ class WorkerRepository {
                 "Florien Flament",
                 R.drawable.florien,
                 "",
-                "?",
+                "2022",
                 "Belgium",
                 "Android Engineer"
             ),
@@ -78,6 +79,7 @@ class WorkerRepository {
                 R.drawable.laurent,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2021",
+                "France",
                 "Android Engineer"
             ),
             Worker(
@@ -93,7 +95,7 @@ class WorkerRepository {
                 R.drawable.luca,
                 "",
                 "2022",
-                "Belgium",
+                "Germany",
                 "Android Engineer"
             ),
             Worker(
@@ -101,13 +103,14 @@ class WorkerRepository {
                 R.drawable.mehdi,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2019",
+                "France",
                 "Android Engineer"
             ),
             Worker(
                 "Michael Widlok",
                 R.drawable.michael,
                 "",
-                "?",
+                "2022",
                 "Germany",
                 "Android Engineer"
             ),
@@ -147,7 +150,7 @@ class WorkerRepository {
                 "Zhiyi Wang",
                 R.drawable.wang,
                 "",
-                "?",
+                "2019",
                 "Germany",
                 "Android Engineer"
             ),
