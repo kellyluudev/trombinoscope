@@ -11,8 +11,8 @@ class WorkerRepository {
                 "Abdullah Al Samman",
                 R.drawable.abdullah,
                 "",
-                "?",
-                "Belgium",
+                "2022",
+                "Germany",
                 "Android Engineer"
             ),
             Worker(
@@ -29,7 +29,7 @@ class WorkerRepository {
                 "Andrea Westrich",
                 R.drawable.andrea,
                 "",
-                "?",
+                "2019",
                 "Germany",
                 "Android CoE"
             ),
@@ -47,13 +47,14 @@ class WorkerRepository {
                 "Bhumanyu BARKAKATI",
                 R.drawable.bhumanyu,
                 "",
-                "?",
+                "2022",
                 "Belgium",
                 "Android Engineer"
             ),
             Worker(
                 1,
                 "Chiara Müller-Kallweit",
+                arrivalDate = "2019",
                 location = "Germany",
                 jobTitle = "Android Engineer"
             ),
@@ -62,7 +63,7 @@ class WorkerRepository {
                 "Cristian Garcia Alvarez",
                 R.drawable.cristian,
                 "",
-                "?",
+                "2021",
                 "Belgium",
                 "Android CoE"
             ),
@@ -71,7 +72,7 @@ class WorkerRepository {
                 "Florien Flament",
                 R.drawable.florien,
                 "",
-                "?",
+                "2022",
                 "Belgium",
                 "Android Engineer"
             ),
@@ -90,6 +91,7 @@ class WorkerRepository {
                 R.drawable.laurent,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2021",
+                "France",
                 "Android Engineer"
             ),
             Worker(
@@ -107,7 +109,7 @@ class WorkerRepository {
                 R.drawable.luca,
                 "",
                 "2022",
-                "Belgium",
+                "Germany",
                 "Android Engineer"
             ),
             Worker(
@@ -116,6 +118,7 @@ class WorkerRepository {
                 R.drawable.mehdi,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2019",
+                "France",
                 "Android Engineer"
             ),
             Worker(
@@ -123,7 +126,7 @@ class WorkerRepository {
                 "Michael Widlok",
                 R.drawable.michael,
                 "",
-                "?",
+                "2022",
                 "Germany",
                 "Android Engineer"
             ),
@@ -146,11 +149,20 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                "Théo Sitnikow",
+                R.drawable.theo,
+                "https://ca.slack-edge.com/T8MMQ651A-U03R36766H2-2505e10b664c-512",
+                "2022",
+                "France",
+                "Android Engineer"
+            ),
+            Worker(
                 1,
                 "Valentin Tran",
                 R.drawable.valentin,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
                 "2021",
+                "France",
                 "Android Engineer"
             ),
             Worker(
@@ -158,7 +170,7 @@ class WorkerRepository {
                 "Zhiyi Wang",
                 R.drawable.wang,
                 "",
-                "?",
+                "2019",
                 "Germany",
                 "Android Engineer"
             ),
