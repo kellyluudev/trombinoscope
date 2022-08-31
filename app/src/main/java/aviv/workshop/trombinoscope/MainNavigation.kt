@@ -29,15 +29,16 @@ private fun NavGraphBuilder.addWorkerList(hostController: NavHostController) =
         WorkerListScreen(
             viewModel = viewModel(),
             onItemClicked = { worker ->
-                val workerListRoute = Screen.WORKER_DETAIL.name + "/${worker.id}"
-                hostController.navigate(workerListRoute)
+                val detailsRoute = Screen.WORKER_DETAIL.name + "/${worker.id}"
+                hostController.navigate(detailsRoute)
             }
         )
     }
 
 private fun NavGraphBuilder.addWorkerDetails() {
     val id = "workerId"
-    composable(route = Screen.WORKER_DETAIL.name + "/{$id}",
+    val detailsRoute = Screen.WORKER_DETAIL.name + "/{$id}"
+    composable(route = detailsRoute,
         arguments = listOf(
             navArgument(id) {
                 type = NavType.IntType
@@ -45,7 +46,7 @@ private fun NavGraphBuilder.addWorkerDetails() {
                 nullable = false
             }
         )) {
-        DetailsScreen(name = "name", jobTitle = "job title")
+        DetailsScreen(name = "name", jobTitle = "job title", id = it.arguments?.getInt(id) ?: 0)
     }
 }
 
