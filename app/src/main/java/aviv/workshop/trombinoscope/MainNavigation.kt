@@ -35,16 +35,19 @@ private fun NavGraphBuilder.addWorkerList(hostController: NavHostController) =
         )
     }
 
-private fun NavGraphBuilder.addWorkerDetails() =
-    composable(route = Screen.WORKER_DETAIL.name, arguments = listOf(
-        navArgument("workerId") {
-            type = NavType.ReferenceType
-            defaultValue = "Unknown"
-            nullable = false
-        }
-    )) {
+private fun NavGraphBuilder.addWorkerDetails() {
+    val id = "workerId"
+    composable(route = Screen.WORKER_DETAIL.name + "/$id",
+        arguments = listOf(
+            navArgument(id) {
+                type = NavType.IntType
+                defaultValue = 0
+                nullable = false
+            }
+        )) {
         DetailsScreen(name = "name", jobTitle = "job title")
     }
+}
 
 private enum class Screen {
     WORKER_LIST,
