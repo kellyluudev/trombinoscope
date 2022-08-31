@@ -9,7 +9,7 @@ class WorkerRepository {
     }
 
     fun getWorker(workerId: Int): Worker {
-        TODO("Not yet implemented")
+        return workerList.find { workerId == it.id } ?: Worker()
     }
 
     private val workerList = listOf(
