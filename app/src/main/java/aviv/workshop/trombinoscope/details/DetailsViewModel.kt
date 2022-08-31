@@ -8,7 +8,7 @@ class DetailsViewModel : ViewModel() {
 
     private val repository = WorkerRepository()
 
-    fun getWorker(id: Int): Worker {
-        TODO("Not yet implemented")
+    fun getWorker(workerId: Int): Worker {
+        return repository.getWorker(workerId)
     }
 }

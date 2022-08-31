@@ -177,4 +177,8 @@ class WorkerRepository {
             ),
         )
     }
+
+    fun getWorker(workerId: Int): Worker {
+        TODO("Not yet implemented")
+    }
 }
