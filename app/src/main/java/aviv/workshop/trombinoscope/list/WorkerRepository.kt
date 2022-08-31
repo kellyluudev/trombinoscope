@@ -9,7 +9,8 @@ class WorkerRepository {
     }
 
     fun getWorker(workerId: Int): Worker {
-        return workerList.find { workerId == it.id } ?: Worker()
+        val defaultRabbitWorker = Worker()
+        return workerList.find { workerId == it.id } ?: defaultRabbitWorker
     }
 
     private val workerList = listOf(
