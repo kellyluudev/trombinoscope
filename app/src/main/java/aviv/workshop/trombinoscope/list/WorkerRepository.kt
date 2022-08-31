@@ -7,6 +7,7 @@ class WorkerRepository {
     fun getWorkers(): List<Worker> {
         return listOf(
             Worker(
+                1,
                 "Abdullah Al Samman",
                 R.drawable.abdullah,
                 "",
@@ -15,6 +16,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Ahmed Abdellaoui",
                 R.drawable.ahmed,
                 "https://media-exp1.licdn.com/dms/image/C4D03AQGUK5q3ryAFuQ/profile-displayphoto-shrink_200_200/0/1517349681988?e=1652918400&v=beta&t=GW-68M6vB0w0oyPs8U_MOdJqZEv9gfF557r3C71o6rA",
@@ -23,6 +25,7 @@ class WorkerRepository {
                 "Android CoE"
             ),
             Worker(
+                1,
                 "Andrea Westrich",
                 R.drawable.andrea,
                 "",
@@ -31,6 +34,7 @@ class WorkerRepository {
                 "Android CoE"
             ),
             Worker(
+                1,
                 "Anthony Valette",
                 R.drawable.anthony,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -39,6 +43,7 @@ class WorkerRepository {
                 "Android Lead Engineer"
             ),
             Worker(
+                1,
                 "Bhumanyu BARKAKATI",
                 R.drawable.bhumanyu,
                 "",
@@ -47,11 +52,13 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Chiara Müller-Kallweit",
                 location = "Germany",
                 jobTitle = "Android Engineer"
             ),
             Worker(
+                1,
                 "Cristian Garcia Alvarez",
                 R.drawable.cristian,
                 "",
@@ -60,6 +67,7 @@ class WorkerRepository {
                 "Android CoE"
             ),
             Worker(
+                1,
                 "Florien Flament",
                 R.drawable.florien,
                 "",
@@ -68,6 +76,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Kelly Luu",
                 R.drawable.kelly,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -76,6 +85,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Laurent Binutti",
                 R.drawable.laurent,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -83,6 +93,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Lionel Collin",
                 R.drawable.lionel,
                 "",
@@ -91,6 +102,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Luca Bartl",
                 R.drawable.luca,
                 "",
@@ -99,6 +111,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Mehdi Chouag",
                 R.drawable.mehdi,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -106,6 +119,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Michael Widlok",
                 R.drawable.michael,
                 "",
@@ -114,6 +128,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Navek Portella",
                 R.drawable.navek,
                 "https://eip.epitech.eu/2013/selfishfriendship/www.epitech.eu/intra/photos/portel_n.jpg",
@@ -122,6 +137,7 @@ class WorkerRepository {
                 "Android Lead Engineer"
             ),
             Worker(
+                1,
                 "Pierre-Louis Bertheau",
                 R.drawable.pierrelouis,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -130,6 +146,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Valentin Tran",
                 R.drawable.valentin,
                 "https://pbs.twimg.com/profile_images/1064824881651621888/iZkCLqWQ_400x400.jpg",
@@ -137,6 +154,7 @@ class WorkerRepository {
                 "Android Engineer"
             ),
             Worker(
+                1,
                 "Zhiyi Wang",
                 R.drawable.wang,
                 "",
