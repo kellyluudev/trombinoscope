@@ -48,6 +48,8 @@ class WorkerRepository {
             ),
             Worker(
                 "Chiara Müller-Kallweit",
+                R.drawable.chiara,
+                "https://ca.slack-edge.com/T8MMQ651A-UP1PHSPNC-95a9fd9479ed-512",
                 arrivalDate = "2019",
                 location = "Germany",
                 jobTitle = "Android Engineer"
