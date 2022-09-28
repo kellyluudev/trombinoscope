@@ -146,7 +146,7 @@ class WorkerRepository {
                 "Valentin Tran",
                 R.drawable.valentin,
                 "https://ca.slack-edge.com/T8MMQ651A-U017C09B76U-9b1b623c22e3-512",
-                "2021",
+                "2020",
                 "France",
                 "Android Engineer"
             ),
