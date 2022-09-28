@@ -19,7 +19,7 @@ import com.example.figma.atoms.SecondaryButton
 @Composable
 internal fun WorkerScreen(workers: List<Worker>) {
     WorkerItem(
-        modifier = Modifier.padding(32.dp),
+        modifier = Modifier.padding(16.dp),
         worker = workers.first()
     )
 }
