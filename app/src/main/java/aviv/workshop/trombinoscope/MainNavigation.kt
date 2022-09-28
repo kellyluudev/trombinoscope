@@ -21,7 +21,8 @@ fun MainNavigation() {
                 WorkerListScreen(
                     viewModel = viewModel(),
                     navigateToDetails = {
-                        navController.navigate(Screen.WORKER_DETAILS.route())
+                        val route1 = Screen.WORKER_DETAILS.route() + "/{$it.}"
+                        navController.navigate(route1)
                     }
                 )
             }

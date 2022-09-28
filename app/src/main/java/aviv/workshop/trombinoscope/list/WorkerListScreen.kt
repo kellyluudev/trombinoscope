@@ -21,7 +21,7 @@ import com.example.figma.atoms.H3Text
 import com.example.figma.atoms.SecondaryButton
 
 @Composable
-internal fun WorkerListScreen(viewModel: WorkerListViewModel, navigateToDetails: () -> Unit) {
+internal fun WorkerListScreen(viewModel: WorkerListViewModel, navigateToDetails: (worker: Worker) -> Unit) {
     Scaffold(topBar = {
         TopAppBar(
             title = { Text(text = "Workshop") },
@@ -33,7 +33,7 @@ internal fun WorkerListScreen(viewModel: WorkerListViewModel, navigateToDetails:
 }
 
 @Composable
-private fun WorkerList(workers: List<Worker>, onItemClick: () -> Unit) =
+private fun WorkerList(workers: List<Worker>, onItemClick: (worker: Worker) -> Unit) =
     LazyColumn(
         contentPadding = PaddingValues(vertical = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -51,7 +51,7 @@ private fun WorkerList(workers: List<Worker>, onItemClick: () -> Unit) =
 private fun WorkerItem(
     modifier: Modifier = Modifier,
     worker: Worker,
-    onItemClick: () -> Unit
+    onItemClick: (worker: Worker) -> Unit
 ) {
     var state by rememberSaveable { mutableStateOf(ScreenState.DETAILS_HIDDEN) }
     val onButtonClick = {
@@ -64,7 +64,7 @@ private fun WorkerItem(
 
     Card(
         modifier = modifier.fillMaxWidth()
-            .clickable { onItemClick() },
+            .clickable { onItemClick(worker) },
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp)
     ) {
