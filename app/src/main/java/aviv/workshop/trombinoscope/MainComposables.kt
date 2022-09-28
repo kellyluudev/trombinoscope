@@ -1,6 +1,7 @@
 package aviv.workshop.trombinoscope
 
 import android.annotation.SuppressLint
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -8,9 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -43,7 +42,10 @@ private fun WorkerList(workers: List<Worker>) = LazyColumn(
 
 @SuppressLint("UnrememberedMutableState")
 @Composable
-private fun WorkerItem(worker: Worker) =
+private fun WorkerItem(worker: Worker) {
+    val state = remember {
+        mutableStateOf(ScreenState.DETAIL_HIDDEN)
+    }
     Card(
         modifier = Modifier
             .fillMaxWidth(),
@@ -55,18 +57,11 @@ private fun WorkerItem(worker: Worker) =
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val count = remember {
-                mutableStateOf(0)
-            }
             Column {
                 H3Text(text = worker.name)
-                Body1Text(text = worker.arrivalDate)
+                ArrivalDate(worker, state.value)
                 Body1Text(worker.jobTitle)
-                SecondaryButton(
-                    modifier = Modifier.padding(top = 12.dp),
-                    text = "Show details ${count.value}",
-                    onClick = {count.value++}
-                )
+                DetailsButton(state)
             }
             Image(
                 painter = painterResource(worker.pictureRes),
@@ -78,6 +73,29 @@ private fun WorkerItem(worker: Worker) =
             )
         }
     }
+}
+
+@Composable
+private fun DetailsButton(state: MutableState<ScreenState>) {
+    SecondaryButton(
+        modifier = Modifier.padding(top = 12.dp),
+        text = state.value.buttonText,
+        onClick = { oldText ->
+            state.value = if (oldText == ScreenState.DETAIL_VISIBILITY.buttonText){
+                ScreenState.DETAIL_HIDDEN
+            } else {
+                ScreenState.DETAIL_VISIBILITY
+            }
+        }
+    )
+}
+
+@Composable
+private fun ArrivalDate(worker: Worker, state: ScreenState) {
+    AnimatedVisibility(visible = state.isDetailVisibility) {
+        Body1Text(text = worker.arrivalDate)
+    }
+}
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
@@ -85,4 +103,9 @@ fun DefaultPreview() {
     TrombinoscopeTheme {
         WorkerScreen(listOf(Worker(), Worker()))
     }
+}
+
+enum class ScreenState(val buttonText: String, val isDetailVisibility: Boolean) {
+    DETAIL_VISIBILITY("Hide details", true),
+    DETAIL_HIDDEN("Show details", false),
 }
