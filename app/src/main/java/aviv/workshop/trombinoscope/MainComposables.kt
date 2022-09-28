@@ -2,8 +2,10 @@ package aviv.workshop.trombinoscope
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,16 +20,34 @@ import com.example.figma.atoms.SecondaryButton
 
 @Composable
 internal fun WorkerScreen(workers: List<Worker>) {
-    WorkerItem(
-        modifier = Modifier.padding(16.dp),
-        worker = workers.first()
-    )
+    Scaffold(topBar = {
+        TopAppBar(
+            title = { Text(text = "Workshop") },
+            backgroundColor = MaterialTheme.colors.primary
+        )}
+    ) {
+        WorkerList(workers)
+    }
 }
 
 @Composable
-private fun WorkerItem(modifier: Modifier = Modifier, worker: Worker) {
+private fun WorkerList(workers: List<Worker>) =
+    LazyColumn(
+        contentPadding = PaddingValues(vertical = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(workers) {
+            WorkerItem(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                worker = it
+            )
+        }
+    }
+
+@Composable
+private fun WorkerItem(modifier: Modifier = Modifier, worker: Worker) =
     Card(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         elevation = 4.dp,
         shape = RoundedCornerShape(8.dp)
     ) {
@@ -56,15 +76,11 @@ private fun WorkerItem(modifier: Modifier = Modifier, worker: Worker) {
             )
         }
     }
-}
 
 @Composable
 @Preview(showBackground = false, widthDp = 600)
 private fun DefaultPreview() {
     TrombinoscopeTheme {
-        WorkerItem(
-            modifier = Modifier.padding(32.dp),
-            Worker()
-        )
+        WorkerScreen(listOf(Worker(), Worker(), Worker(), Worker(), Worker()))
     }
 }
