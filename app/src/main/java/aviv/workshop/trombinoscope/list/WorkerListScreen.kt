@@ -8,9 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,10 +53,15 @@ private fun WorkerItem(
     worker: Worker,
     onItemClick: () -> Unit
 ) {
-
-    val state = rememberSaveable {
-        mutableStateOf(ScreenState.DETAILS_HIDDEN)
+    var state by rememberSaveable { mutableStateOf(ScreenState.DETAILS_HIDDEN) }
+    val onButtonClick = {
+        state = if (state == ScreenState.DETAILS_VISIBLE) {
+            ScreenState.DETAILS_HIDDEN
+        } else {
+            ScreenState.DETAILS_VISIBLE
+        }
     }
+
     Card(
         modifier = modifier.fillMaxWidth()
             .clickable { onItemClick() },
@@ -73,8 +76,8 @@ private fun WorkerItem(
             Column {
                 H3Text(text = worker.name)
                 Body1Text(text = worker.jobTitle)
-                ArrivalDate(worker, state.value.isDetailVisible)
-                DetailsButton(state, )
+                ArrivalDate(worker, state.isDetailVisible)
+                DetailsButton(state.buttonText, onButtonClick)
             }
             Image(
                 painter = painterResource(id = worker.pictureRes),
@@ -89,17 +92,11 @@ private fun WorkerItem(
 }
 
 @Composable
-private fun DetailsButton(state: MutableState<ScreenState>) {
+private fun DetailsButton(buttonText: String, onClick: () -> Unit) {
     SecondaryButton(
         modifier = Modifier.padding(top = 12.dp),
-        onClick = { oldLabel ->
-                  state.value = if(oldLabel == ScreenState.DETAILS_VISIBLE.buttonText){
-                      ScreenState.DETAILS_HIDDEN
-                  } else {
-                      ScreenState.DETAILS_VISIBLE
-                  }
-        },
-        text = state.value.buttonText
+        onClick = { onClick() },
+        text = buttonText
     )
 }
 @Composable
