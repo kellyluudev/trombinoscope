@@ -1,6 +1,7 @@
-package aviv.workshop.trombinoscope
+package aviv.workshop.trombinoscope.list
 
 import androidx.annotation.DrawableRes
+import aviv.workshop.trombinoscope.R
 
 data class Worker(
     val name: String = "Rabbit",

@@ -1,6 +1,8 @@
-package aviv.workshop.trombinoscope
+package aviv.workshop.trombinoscope.list
 
-class MainViewModel {
+import androidx.lifecycle.ViewModel
+
+class WorkerListViewModel : ViewModel() {
 
     private val repository = WorkerRepository()
 
