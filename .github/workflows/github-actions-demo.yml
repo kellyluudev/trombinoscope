@@ -19,7 +19,7 @@
 
 name: Check Snapshot in TOML
 on:
-  [pull_request]
+  [push]
 jobs:
   check_snapshot:
     runs-on: ubuntu-latest
