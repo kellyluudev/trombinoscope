@@ -33,3 +33,5 @@ jobs:
             echo "No snapshot found in TOML file(s)."
           fi
       - run: pwd
+      - run: find . -type f -name "*.toml"
+      - run: ls $(pwd)
