@@ -35,3 +35,5 @@ jobs:
       - run: pwd
       - run: find . -type f -name "*.toml"
       - run: ls $(pwd)
+      - name: List files in directory
+        run: ls -R
