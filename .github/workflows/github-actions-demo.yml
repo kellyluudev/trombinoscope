@@ -32,3 +32,4 @@ jobs:
           else
             echo "No snapshot found in TOML file(s)."
           fi
+      - run: pwd
