@@ -1,0 +1,206 @@
+[versions]
+
+#aviv
+avivGemini = "1.3.1.230927.1615-SNAPSHOT"
+avivNetworking = "2.2.6.230927.0951"
+avivGradlePlugins = "1.0.8.230901.0854"
+
+#plugins
+desugar_jdk_libs = "2.0.3"
+pluginAndroid = "8.0.2"
+
+#libraries
+androidxActivity = "1.7.1"
+androidxAppCompat = "1.6.1"
+androidxComposeBom = "2023.04.01"
+androidxComposeCompiler = "1.4.6"
+androidxDataStore = "1.0.0"
+androidxLifecycle = "2.6.1"
+androidxPreference = "1.2.0"
+androidxNavigation = "2.5.2"
+androidxStartup = "1.1.1"
+accompanist = "0.30.1"
+androidxTest = "1.4.0"
+androidxTestExt = "1.1.3"
+coil = "2.3.0"
+coroutine = "1.6.4"
+dagger = "2.44"
+datadome = "1.9.2"
+firebaseBom = "31.2.3"
+junit4 = "4.13.2"
+kotlin = "1.8.20"
+mockitoCore = "5.2.0"
+mockitoKotlin = "4.1.0"
+okhttp = "4.10.0"
+kotlinxSerialization = "1.4.1"
+protobuf = "3.23.2"
+playservice = "21.0.1"
+robolectric = "4.10.2"
+airship = "17.1.0"
+
+androidxHiltNavigationCompose = "1.0.0"
+hilt = "2.44"
+hiltExt = "1.0.0"
+
+googleMapsCompose = "2.12.0"
+
+[libraries]
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version = "1.6.0" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
+androidx-core = { group = "androidx.core", name = "core-ktx", version = "1.9.0" }
+androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material" }
+androidx-compose-material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
+androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTest" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTest" }
+androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-datastore = { group = "androidx.datastore", name = "datastore", version.ref = "androidxDataStore" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidxDataStore" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
+androidx-preference = { group = "androidx.preference", name = "preference-ktx", version.ref = "androidxPreference" }
+androidx-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
+accompanist-navigation = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version.ref = "accompanist" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+accompanist-webview = { group = "com.google.accompanist", name = "accompanist-webview", version.ref = "accompanist" }
+accompanist-permission = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+playservice-gms-location = { group = "com.google.android.gms", name = "play-services-location", version.ref = "playservice" }
+
+aviv-networking = { group = "com.aviv-group.toolkit", name = "networking-core", version.ref = "avivNetworking" }
+aviv-networking-converters-kotlinx-serialization = { group = "com.aviv-group.toolkit", name = "networking-converters-kotlinx-serialization", version.ref = "avivNetworking" }
+aviv-networking-adapters-flow = { group = "com.aviv-group.toolkit", name = "networking-adapters-flow", version.ref = "avivNetworking" }
+aviv-networking-auth = { group = "com.aviv-group.toolkit", name = "networking-auth", version.ref = "avivNetworking" }
+aviv-networking-avivsecurity-v1 = { group = "com.aviv-group.toolkit", name = "networking-avivsecurity-v1", version.ref = "avivNetworking" }
+
+aviv-gemini-core = { group = "com.aviv-group.gemini", name = "core", version.ref = "avivGemini" }
+aviv-gemini-material3 = { group = "com.aviv-group.gemini", name = "material3", version.ref = "avivGemini" }
+aviv-gemini-seloger = { group = "com.aviv-group.gemini", name = "seloger", version.ref = "avivGemini" }
+aviv-gemini-immoweb = { group = "com.aviv-group.gemini", name = "immoweb", version.ref = "avivGemini" }
+aviv-gemini-immowelt = { group = "com.aviv-group.gemini", name = "immowelt", version.ref = "avivGemini" }
+aviv-gemini-immonet = { group = "com.aviv-group.gemini", name = "immonet", version.ref = "avivGemini" }
+
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+
+datadome = { group = "co.datadome.sdk", name = "sdk", version.ref = "datadome" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-common = { group = "com.google.firebase", name = "firebase-common-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
+firebase-config = { group = "com.google.firebase", name = "firebase-config-ktx" }
+
+airship-core = { group = "com.urbanairship.android", name = "urbanairship-core", version.ref = "airship"}
+
+androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
+hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+
+javax-inject = { group = "javax.inject", name = "javax.inject", version = "1" }
+
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutine" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutine" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutine" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+mockk = { group = "io.mockk", name = "mockk", version = "1.13.3" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlin" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+
+squareup-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+turbine = { group = "app.cash.turbine", name = "turbine", version = "0.12.1" }
+protobuf-javalite = { group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobuf" }
+protobuf-kotlin = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
+protobuf-compiler = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "pluginAndroid" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+maps-compose = { group = "com.google.maps.android", name = "maps-compose", version.ref = "googleMapsCompose" }
+maps-playservice = { group = "com.google.android.gms", name = "play-services-maps", version.require = "playservice" }
+
+[bundles]
+androidx-compose = [
+    "androidx-activity-compose",
+    "androidx-compose-foundation",
+    "androidx-compose-foundation-layout",
+    "androidx-compose-material-iconsExtended",
+    "androidx-compose-material",
+    "androidx-compose-material3",
+    "androidx-compose-material3-windowSizeClass",
+    "androidx-lifecycle-runtimeCompose",
+    "androidx-compose-runtime",
+    "androidx-compose-runtime-livedata",
+    "androidx-compose-ui-tooling",
+    "androidx-compose-ui-tooling-preview",
+    "androidx-compose-ui-util",
+    "androidx-lifecycle-runtimeCompose",
+    "androidx-lifecycle-viewModelCompose",
+    "androidx-navigation-compose",
+    "accompanist-navigation",
+    "accompanist-pager"
+]
+
+aviv-networking = [
+    "aviv-networking",
+    "aviv-networking-converters-kotlinx-serialization"
+]
+
+google-maps = [
+    "maps-compose",
+    "maps-playservice"
+]
+
+androidx-compose-test = [
+    "androidx-compose-ui-test",
+    "androidx-test-runner",
+    "androidx-test-rules",
+    "androidx-compose-ui-testManifest"
+]
+
+kotlinx-coroutines = [
+    "kotlinx-coroutines-core",
+    "kotlinx-coroutines-android"
+]
+
+kotlinx-coroutines-test = [
+    "kotlinx-coroutines-test",
+    "turbine"
+]
+
+[plugins]
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+module-dependency-graph = { id = "com.savvasdalkitsis.module-dependency-graph", version = "0.10" }
+google-services = { id = "com.google.gms.google-services", version = "4.3.15"}
+
+# Convention
+android-application-convention = { id = 'com.aviv-group.plugins.convention.android-application', version.ref = 'avivGradlePlugins' }
+android-library-convention = { id = 'com.aviv-group.plugins.convention.android-library', version.ref = 'avivGradlePlugins' }
+android-dynamic-convention = { id = 'com.aviv-group.plugins.convention.android-dynamic-feature', version.ref = 'avivGradlePlugins' }
+android-compose-convention = { id = 'com.aviv-group.plugins.convention.android-compose', version.ref = 'avivGradlePlugins' }
+dagger-convention = { id = 'com.aviv-group.plugins.convention.dagger', version.ref = 'avivGradlePlugins' }
+hilt-convention = { id = 'com.aviv-group.plugins.convention.hilt', version.ref = 'avivGradlePlugins' }
+kotlinxSerialization-convention = { id = 'com.aviv-group.plugins.convention.kotlinx-serialization', version.ref = 'avivGradlePlugins' }
+publishing-convention = { id = 'com.aviv-group.plugins.convention.publishing', version.ref = 'avivGradlePlugins' }
+protobuf-convention = { id = 'com.aviv-group.plugins.convention.protobuf', version.ref = 'avivGradlePlugins' }
+signing-config-convention = { id = 'com.aviv-group.plugins.convention.signing-config', version.ref = 'avivGradlePlugins' }
